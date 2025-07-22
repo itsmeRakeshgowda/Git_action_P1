@@ -1,0 +1,21 @@
+name: CI - Activity Checker
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  activity-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Print GitHub Event Info
+        run: |
+          echo "Event Type: ${{ github.event_name }}"
+          echo "Pushed by: ${{ github.actor }}"
+          echo "Branch: ${{ github.ref }}"
