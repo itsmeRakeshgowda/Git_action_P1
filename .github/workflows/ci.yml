@@ -20,10 +20,15 @@ jobs:
           echo "Pushed by: ${{ github.actor }}"
           echo "Branch: ${{ github.ref }}"
 
-      - name: Run Code Validation with flake8
+      - name: Install Requirements
         run: |
           pip install -r requirements.txt
-          flake8 app.py
+
+      - name: Run Linting with flake8
+        run: flake8 app.py
+
+      - name: Run Tests with pytest
+        run: pytest test_app.py
 
       - name: Notify About Git Event
         run: |
