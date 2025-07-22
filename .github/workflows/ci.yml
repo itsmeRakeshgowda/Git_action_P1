@@ -19,3 +19,8 @@ jobs:
           echo "Event Type: ${{ github.event_name }}"
           echo "Pushed by: ${{ github.actor }}"
           echo "Branch: ${{ github.ref }}"
+          
+      - name: Run Code Validation with flake8
+        run: |
+          pip install -r requirements.txt
+          flake8 app.py
