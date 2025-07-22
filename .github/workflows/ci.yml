@@ -45,3 +45,10 @@ jobs:
           echo "🚀 Starting Deployment..."
           echo "📁 Copying files to server..."
           echo "✅ Deployment successful to production environment!"
+
+      - name: Simulate Rollback on Failure
+        if: failure()
+        run: |
+          echo "🛑 Build or test failed!"
+          echo "🕹️ Initiating rollback procedure..."
+          echo "↩️ Code reverted to previous stable version."
