@@ -19,17 +19,18 @@ jobs:
           echo "Event Type: ${{ github.event_name }}"
           echo "Pushed by: ${{ github.actor }}"
           echo "Branch: ${{ github.ref }}"
-          
+
       - name: Run Code Validation with flake8
         run: |
           pip install -r requirements.txt
           flake8 app.py
-     - name: Notify About Git Event
-  run: | 
-    echo "🔔 GitHub Event Notification:"
-    echo "-----------------------------------"
-    echo "✅ Event Type  : ${{ github.event_name }}"
-    echo "✅ Triggered by: ${{ github.actor }}"
-    echo "✅ Repo        : ${{ github.repository }}"
-    echo "✅ Branch      : ${{ github.ref }}"
-    echo "✅ Commit Msg  : ${{ github.event.head_commit.message }}"
+
+      - name: Notify About Git Event
+        run: |
+          echo "🔔 GitHub Event Notification:"
+          echo "-----------------------------------"
+          echo "✅ Event Type  : ${{ github.event_name }}"
+          echo "✅ Triggered by: ${{ github.actor }}"
+          echo "✅ Repo        : ${{ github.repository }}"
+          echo "✅ Branch      : ${{ github.ref }}"
+          echo "✅ Commit Msg  : ${{ github.event.head_commit.message }}"
